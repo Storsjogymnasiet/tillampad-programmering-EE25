@@ -1,6 +1,6 @@
 # Tillämpad programmering - EE25
 
-Detta är git-repot för kursen tillämpas programmering
+Detta är git-repot för kursen tillämpad programmering
 
 ## Upplägg 
 
