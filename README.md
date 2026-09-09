@@ -24,4 +24,4 @@ Detta är git-repot för kursen tillämpad programmering
 Här delas kod och annat bra för tillämpad programmering
 ## Kursrepo
 
-Alla elever i kursen ska starta ett eget repo som heter följande: TILL1000X-fornamn-efter. Det är där du kommer ladda upp all kod du skriver i kursen.
+Alla elever i kursen ska starta ett eget repo som heter följande: TILL1000X-fornamn-efter. Det är där du kommer ladda upp all kod du skriver i kursen. Ditt egna repo ska följa samma mappstruktur som detta.
