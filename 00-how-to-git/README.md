@@ -24,52 +24,28 @@ git config --global --list
 
 ## 2. Spara dina inloggningsuppgifter (slippa skriva lösenord varje gång)
 
-Du behöver bara göra **ett** av alternativen nedan.
-
-### Alternativ A: SSH-nyckel (rekommenderas)
-
-Med SSH loggar du in med en nyckel istället för lösenord. Klona repon med SSH-url (`git@github.com:...`).
+När du klonar och pushar med en `https://`-url frågar Git efter användarnamn och lösenord.
+Du kan få Git att komma ihåg det efter första gången.
 
 ```bash
-# 1. Skapa en nyckel (tryck Enter på alla frågor för standardval)
-ssh-keygen -t ed25519 -C "din.epost@example.com"
-
-# 2. Visa den publika nyckeln och kopiera hela raden
-cat ~/.ssh/id_ed25519.pub
-```
-
-Klistra sedan in nyckeln på GitHub: **Settings → SSH and GPG keys → New SSH key**.
-
-Testa att det funkar:
-
-```bash
-ssh -T git@github.com
-```
-
-### Alternativ B: Credential helper (om du använder HTTPS-url)
-
-Om du klonar med `https://github.com/...` kan Git spara din inloggning efter första gången:
-
-```bash
-# Linux – sparar krypterat/lokalt tills du loggar ut
 git config --global credential.helper store
-
-# macOS – sparar i Keychain
-git config --global credential.helper osxkeychain
-
-# Windows – använd Git Credential Manager (följer med Git for Windows)
-git config --global credential.helper manager
 ```
 
-Nästa gång du pushar anger du användarnamn och en **Personal Access Token** (Settings → Developer settings → Personal access tokens) som lösenord. Efter det kommer Git ihåg den.
+Nästa gång du pushar anger du:
 
-> Obs: `credential.helper store` sparar token i klartext i `~/.git-credentials`. Använd bara på din egen dator.
+- **Username:** ditt GitHub-användarnamn
+- **Password:** en **Personal Access Token** (inte ditt vanliga lösenord)
 
-### Byta befintligt repo från HTTPS till SSH
+Efter det kommer Git ihåg uppgifterna och du slipper skriva dem igen.
 
-```bash
-git remote set-url origin git@github.com:ditt-anvandarnamn/TILL1000X-fornamn-efternamn.git
-```
+### Skapa en Personal Access Token
+
+1. Gå till GitHub → **Settings → Developer settings → Personal access tokens → Tokens (classic)**.
+2. Klicka **Generate new token**, kryssa i `repo`, och välj en giltighetstid.
+3. Kopiera token direkt – den visas bara en gång. Använd den som lösenord när Git frågar.
+
+> Obs: `credential.helper store` sparar din token i klartext i filen `~/.git-credentials`.
+> Använd det bara på din egen dator, inte på en delad dator.
 
 ## 3. Skapa ditt kursrepo
 
@@ -77,7 +53,7 @@ git remote set-url origin git@github.com:ditt-anvandarnamn/TILL1000X-fornamn-eft
 2. Klona ner det till din dator:
 
 ```bash
-git clone git@github.com:ditt-anvandarnamn/TILL1000X-fornamn-efternamn.git
+git clone https://github.com/ditt-anvandarnamn/TILL1000X-fornamn-efternamn.git
 cd TILL1000X-fornamn-efternamn
 ```
 
